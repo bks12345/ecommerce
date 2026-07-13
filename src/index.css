@@ -125,3 +125,7 @@
     display: none;
   }
 }
+.newsletter{
+  border: 1px solid #f1a83b;
+  color: #fff;
+}

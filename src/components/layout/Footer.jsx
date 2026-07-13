@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const socialLinks = [
-  { label: "Facebook", initial: "f" },
-  { label: "Instagram", initial: "ig" },
-  { label: "Twitter", initial: "x" },
+  { label: "Facebook", initial: "f",url: "https://www.facebook.com/" },
+  { label: "Instagram", initial: "I",url: "https://www.instagram.com/",},
+  { label: "Twitter", initial: "x",url: "https://www.twitter/",},
 ];
 
 const footerLinks = {
@@ -35,9 +35,8 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl" aria-hidden="true">🌿</span>
               <span className="font-display text-xl font-semibold text-cream">
-                dalbhat
+                Dalbhat
               </span>
             </Link>
             <p className="text-sm text-cream/60 mt-3 max-w-xs">
@@ -56,7 +55,7 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="Your email"
-                className="w-full px-4 py-2 rounded-l-full text-ink text-sm outline-none"
+                className="w-full px-4 py-2 rounded-l-full text-ink text-sm outline-none newsletter"
               />
               <button
                 type="submit"
@@ -73,6 +72,7 @@ export default function Footer() {
                   href="#"
                   aria-label={social.label}
                   className="w-8 h-8 flex items-center justify-center rounded-full bg-cream/10 text-xs font-semibold hover:bg-mango-400 hover:text-basil-900 transition-colors"
+                  target="_blank"
                 >
                   {social.initial}
                 </a>
@@ -100,7 +100,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-cream/10 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-cream/50">
-          <p>© {new Date().getFullYear()} dalbhat. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Dalbhat. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
             <span className="flex items-center gap-1.5">
               <Phone size={14} /> +91 98765 43210
@@ -109,7 +109,7 @@ export default function Footer() {
               <Mail size={14} /> support@dalbhat.com
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin size={14} /> 123 Market Street, Your City
+              <MapPin size={14} /> 123 Market Street, Australia
             </span>
           </div>
         </div>
