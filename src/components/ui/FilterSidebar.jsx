@@ -58,7 +58,7 @@ export default function FilterSidebar({ filters, onChange, onClear, brands = [],
         <h3 className="text-sm font-semibold text-ink mb-3">Price Range</h3>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <span className="text-xs text-ink-soft">₹</span>
+            <span className="text-xs text-ink-soft">$</span>
             <input
               type="number"
               min="0"
@@ -72,7 +72,7 @@ export default function FilterSidebar({ filters, onChange, onClear, brands = [],
           </div>
           <span className="text-ink-soft text-sm">–</span>
           <div className="flex items-center gap-1">
-            <span className="text-xs text-ink-soft">₹</span>
+            <span className="text-xs text-ink-soft">$</span>
             <input
               type="number"
               min="0"

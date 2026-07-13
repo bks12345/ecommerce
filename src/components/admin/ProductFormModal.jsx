@@ -91,7 +91,7 @@ export default function ProductFormModal({ categories, initial, onSave, onClose 
           </div>
 
           <div className="grid grid-cols-3 gap-4">
-            <Field label="Price (₹)" type="number" min="0" value={form.price} onChange={handleChange("price")} required />
+            <Field label="Price ($)" type="number" min="0" value={form.price} onChange={handleChange("price")} required />
             <Field label="Old price" type="number" min="0" value={form.oldPrice} onChange={handleChange("oldPrice")} />
             <Field label="Icon (emoji)" value={form.icon} onChange={handleChange("icon")} />
           </div>

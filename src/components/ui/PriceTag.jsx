@@ -8,13 +8,13 @@ export default function PriceTag({ price, oldPrice, size = "md" }) {
   return (
     <div className="flex items-center gap-2">
       <span
-        className={`market-tag font-semibold bg-basil-600 text-cream rounded-full shadow-soft ${sizes[size]}`}
+        className={`font-semibold bg-basil-600 text-cream rounded-full shadow-soft ${sizes[size]}`}
       >
-        ₹{price}
+        ${price}
       </span>
       {oldPrice && (
         <span className="text-ink-soft/60 line-through text-sm">
-          ₹{oldPrice}
+          ${oldPrice}
         </span>
       )}
     </div>

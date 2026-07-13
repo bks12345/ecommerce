@@ -106,7 +106,7 @@ export default function AdminDashboard() {
         <StatCard icon={FolderTree} label="Total Categories" value={stats.categories} tone="mango" />
         <StatCard icon={Users} label="Total Customers" value={stats.customers} />
         <StatCard icon={ClipboardList} label="Total Orders" value={stats.orders} tone="mango" />
-        <StatCard icon={IndianRupee} label="Sales Revenue" value={`₹${stats.revenue}`} />
+        <StatCard icon={IndianRupee} label="Sales Revenue" value={`$${stats.revenue}`} />
         <StatCard
           icon={AlertTriangle}
           label="Out of Stock"
@@ -127,7 +127,7 @@ export default function AdminDashboard() {
               <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: "#4b564e" }} axisLine={false} tickLine={false} width={28} />
               <Tooltip
                 contentStyle={{ borderRadius: 12, border: "none", boxShadow: "0 8px 24px rgba(22,48,31,0.12)" }}
-                formatter={(value, name) => [name === "revenue" ? `₹${value}` : value, name === "revenue" ? "Revenue" : "Orders"]}
+                formatter={(value, name) => [name === "revenue" ? `$${value}` : value, name === "revenue" ? "Revenue" : "Orders"]}
               />
               <Bar dataKey="orders" fill="#2d5f3f" radius={[6, 6, 0, 0]} maxBarSize={36} />
             </BarChart>

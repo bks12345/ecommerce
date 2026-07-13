@@ -67,7 +67,7 @@ export default function HeroSlider({ slides }) {
             aria-roledescription="slide"
             aria-label={`${current + 1} of ${slides.length}`}
           >
-            <span className="market-tag inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-soft">
+            <span className="inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-soft">
               {slide.eyebrow}
             </span>
             <h1 className="mt-5 font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-cream leading-tight">

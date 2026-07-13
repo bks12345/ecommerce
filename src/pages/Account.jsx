@@ -223,7 +223,7 @@ function OrdersTab({ userId }) {
             <span className="text-sm text-ink-soft">
               {order.items.length} item{order.items.length !== 1 && "s"}
             </span>
-            <span className="font-display text-lg font-semibold text-ink">₹{order.total}</span>
+            <span className="font-display text-lg font-semibold text-ink">${order.total}</span>
           </div>
         </div>
       ))}

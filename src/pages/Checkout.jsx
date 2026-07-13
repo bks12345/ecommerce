@@ -178,7 +178,7 @@ export default function Checkout() {
                 detail={
                   subtotal >= FREE_DELIVERY_THRESHOLD
                     ? "Free — 2 to 3 days"
-                    : `₹${STANDARD_FEE} — 2 to 3 days`
+                    : `$${STANDARD_FEE} — 2 to 3 days`
                 }
                 selected={deliveryMethod === "standard"}
                 onSelect={() => setDeliveryMethod("standard")}
@@ -186,7 +186,7 @@ export default function Checkout() {
               <RadioCard
                 icon={Zap}
                 title="Express Delivery"
-                detail={`₹${EXPRESS_FEE} — next day`}
+                detail={`$${EXPRESS_FEE} — next day`}
                 selected={deliveryMethod === "express"}
                 onSelect={() => setDeliveryMethod("express")}
               />
@@ -241,7 +241,7 @@ export default function Checkout() {
                     <p className="text-ink-soft/60 text-xs">Qty {quantity}</p>
                   </div>
                   <span className="text-ink font-medium shrink-0">
-                    ₹{product.price * quantity}
+                    ${product.price * quantity}
                   </span>
                 </div>
               ))}
@@ -250,19 +250,19 @@ export default function Checkout() {
             <div className="flex flex-col gap-2.5 text-sm mt-4 pt-4 border-t border-basil-50">
               <div className="flex items-center justify-between text-ink-soft">
                 <span>Subtotal</span>
-                <span className="text-ink font-medium">₹{subtotal}</span>
+                <span className="text-ink font-medium">${subtotal}</span>
               </div>
               <div className="flex items-center justify-between text-ink-soft">
                 <span>Delivery</span>
                 <span className="text-ink font-medium">
-                  {deliveryFee === 0 ? "Free" : `₹${deliveryFee}`}
+                  {deliveryFee === 0 ? "Free" : `$${deliveryFee}`}
                 </span>
               </div>
             </div>
 
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-basil-50">
               <span className="font-semibold text-ink">Total</span>
-              <span className="font-display text-xl font-semibold text-ink">₹{total}</span>
+              <span className="font-display text-xl font-semibold text-ink">${total}</span>
             </div>
 
             {error && (

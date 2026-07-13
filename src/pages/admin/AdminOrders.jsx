@@ -80,7 +80,7 @@ export default function AdminOrders() {
                       {new Date(order.placedAt).toLocaleDateString()}
                     </td>
                     <td className="px-5 py-3 text-ink-soft">{order.items.length}</td>
-                    <td className="px-5 py-3 text-ink font-medium">₹{order.total}</td>
+                    <td className="px-5 py-3 text-ink font-medium">${order.total}</td>
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-2">
                         <select

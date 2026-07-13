@@ -135,7 +135,7 @@ export default function Cart() {
               </div>
 
               <p className="hidden md:block w-20 text-right font-semibold text-ink shrink-0">
-                ₹{product.price * quantity}
+                ${product.price * quantity}
               </p>
 
               <button
@@ -166,23 +166,23 @@ export default function Cart() {
             <div className="flex flex-col gap-2.5 text-sm">
               <div className="flex items-center justify-between text-ink-soft">
                 <span>Subtotal</span>
-                <span className="text-ink font-medium">₹{subtotal}</span>
+                <span className="text-ink font-medium">${subtotal}</span>
               </div>
               {discount > 0 && (
                 <div className="flex items-center justify-between text-basil-600">
                   <span>Discount ({appliedCode})</span>
-                  <span className="font-medium">−₹{discount}</span>
+                  <span className="font-medium">−${discount}</span>
                 </div>
               )}
               <div className="flex items-center justify-between text-ink-soft">
                 <span>Delivery</span>
                 <span className="text-ink font-medium">
-                  {deliveryFee === 0 ? "Free" : `₹${deliveryFee}`}
+                  {deliveryFee === 0 ? "Free" : `$${deliveryFee}`}
                 </span>
               </div>
               {deliveryFee > 0 && (
                 <p className="text-xs text-ink-soft/60">
-                  Add ₹{FREE_DELIVERY_THRESHOLD - subtotal} more for free delivery
+                  Add ${FREE_DELIVERY_THRESHOLD - subtotal} more for free delivery
                 </p>
               )}
             </div>
@@ -227,7 +227,7 @@ export default function Cart() {
 
             <div className="flex items-center justify-between mt-5 pt-4 border-t border-basil-50">
               <span className="font-semibold text-ink">Total</span>
-              <span className="font-display text-xl font-semibold text-ink">₹{total}</span>
+              <span className="font-display text-xl font-semibold text-ink">${total}</span>
             </div>
 
             <button

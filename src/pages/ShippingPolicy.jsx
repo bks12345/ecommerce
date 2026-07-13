@@ -5,8 +5,8 @@ export default function ShippingPolicy() {
     <LegalPage title="Shipping Policy" updated="July 2026">
       <LegalSection heading="Delivery options">
         <ul className="list-disc pl-5 flex flex-col gap-1">
-          <li><strong className="text-ink">Standard Delivery</strong> — 2 to 3 days, free on orders over ₹700 (₹49 otherwise)</li>
-          <li><strong className="text-ink">Express Delivery</strong> — next day, ₹99 flat rate</li>
+          <li><strong className="text-ink">Standard Delivery</strong> — 2 to 3 days, free on orders over $700 ($49 otherwise)</li>
+          <li><strong className="text-ink">Express Delivery</strong> — next day, $99 flat rate</li>
         </ul>
       </LegalSection>
 

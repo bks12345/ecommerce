@@ -31,7 +31,7 @@ export default function AdminCoupons() {
         code: form.code.trim(),
         type: form.type,
         value: Number(form.value),
-        description: form.description || `${form.value}${form.type === "percent" ? "%" : "₹"} off`,
+        description: form.description || `${form.value}${form.type === "percent" ? "%" : "$"} off`,
         expiresAt: form.expiresAt || null,
         active: true,
       });
@@ -166,7 +166,7 @@ export default function AdminCoupons() {
                 </label>
                 <label className="flex flex-col gap-1.5 text-sm">
                   <span className="font-medium text-ink-soft">
-                    Value {form.type === "percent" ? "(%)" : "(₹)"}
+                    Value {form.type === "percent" ? "(%)" : "($)"}
                   </span>
                   <input
                     type="number"

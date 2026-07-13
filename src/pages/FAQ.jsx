@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "Is there a minimum order value?",
     answer:
-      "No minimum order value. Orders over ₹700 qualify for free standard delivery — smaller orders have a flat ₹49 delivery fee.",
+      "No minimum order value. Orders over $700 qualify for free standard delivery — smaller orders have a flat $49 delivery fee.",
   },
   {
     question: "What payment methods do you accept?",

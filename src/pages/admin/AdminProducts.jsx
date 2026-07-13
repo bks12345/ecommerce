@@ -99,7 +99,7 @@ export default function AdminProducts() {
                       </div>
                     </td>
                     <td className="px-5 py-3 text-ink-soft">{categoryName(p.category)}</td>
-                    <td className="px-5 py-3 text-ink font-medium">₹{p.price}</td>
+                    <td className="px-5 py-3 text-ink font-medium">${p.price}</td>
                     <td className="px-5 py-3">
                       <span
                         className={`text-xs font-semibold px-2.5 py-1 rounded-full ${

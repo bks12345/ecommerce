@@ -18,7 +18,7 @@ export default function Terms() {
 
       <LegalSection heading="Orders and pricing">
         <p>
-          All prices are listed in Indian Rupees (₹) and include applicable taxes unless
+          All prices are listed in Indian Rupees ($) and include applicable taxes unless
           stated otherwise. We reserve the right to correct pricing errors and to cancel
           orders affected by such errors, with a full refund if payment was already made.
         </p>

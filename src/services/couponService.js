@@ -18,7 +18,7 @@ const defaultCoupons = [
     code: "BULK50",
     type: "flat",
     value: 50,
-    description: "₹50 off bulk pack orders",
+    description: "$50 off bulk pack orders",
     expiresAt: null,
     active: true,
   },

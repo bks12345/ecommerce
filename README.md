@@ -56,7 +56,7 @@ The Home page hero is now a 3-slide auto-rotating carousel (`src/components/ui/H
 
 ## Redesigned Navigation (matches reference screenshot)
 Three-tier header, all in `src/components/layout/`:
-- **`AnnouncementBar.jsx`** — top strip ("Free delivery on your first order over ₹700" / "Contact support")
+- **`AnnouncementBar.jsx`** — top strip ("Free delivery on your first order over $700" / "Contact support")
 - **`Navbar.jsx`** — logo, nav links (active link gets a mango underline), search bar with a circular mango search button, wishlist/cart icons with live count badges, user icon, and a hamburger menu on smaller screens
 - **`CategoryBar.jsx`** — horizontally-scrollable category pills; the active pill highlights automatically based on the `?category=` in the URL when you're on the Shop page
 
@@ -200,7 +200,7 @@ Admin changes aren't a separate, disconnected view — they affect the real stor
 - **`src/services/productStore.js`** / **`categoryStore.js`** — the actual source of truth: seed mock data + a localStorage "overrides" layer (added/edited/deleted). Both the customer-facing `productService`/`categoryService` and the admin services (`adminProductService`, `adminCategoryService`) read and write through these same stores.
 - Add a product in Admin → Products, and it appears on the Shop page and in search immediately (verified by testing this exact flow).
 - Delete a product, edit a price, add a category — all reflected site-wide, not just in the admin table.
-- **`src/services/couponService.js`** — powers both Admin → Coupons *and* the Cart page's promo code field. The old hardcoded `WELCOME10` check in Cart is gone; it now validates against real coupon data, seeded with `WELCOME10` (10% off) and `BULK50` (₹50 off) by default.
+- **`src/services/couponService.js`** — powers both Admin → Coupons *and* the Cart page's promo code field. The old hardcoded `WELCOME10` check in Cart is gone; it now validates against real coupon data, seeded with `WELCOME10` (10% off) and `BULK50` ($50 off) by default.
 
 ### A performance issue I caught and fixed
 Adding the dashboard chart pulled in `recharts`, which pushed the site's main JavaScript bundle from ~300KB to ~757KB — meaning every regular shopper would download admin-dashboard charting code they'd never use, just to browse groceries. Fixed by code-splitting the entire `/admin` section with `React.lazy` + `Suspense`, so `recharts` (and all admin code) is now its own separate bundle that only downloads if someone actually navigates to `/admin`. Confirmed via the build output: the main bundle dropped back to ~372KB, with the admin dashboard split into its own ~356KB chunk loaded on demand.
