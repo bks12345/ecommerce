@@ -9,7 +9,7 @@ export default function MegaMenu({ onNavigate }) {
   const { data: categories } = useAsync(() => categoryService.getCategories(), []);
 
   return (
-    <div className="w-[min(92vw,880px)] p-6 ">
+    <div className="w-[min(92vw,880px)] p-6">
       {/* Category + subcategory grid */}
       <div className="grid grid-cols-4 gap-x-6 gap-y-5">
         {(categories || []).map((cat) => (
@@ -19,7 +19,7 @@ export default function MegaMenu({ onNavigate }) {
               onClick={onNavigate}
               className="flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-basil-600 transition-colors"
             >
-              <span aria-hidden="true">{cat.icon}</span> {cat.name}
+              {cat.name}
             </Link>
             <ul className="mt-2 flex flex-col gap-1.5">
               {(cat.subcategories || []).map((sub) => (
@@ -44,9 +44,8 @@ export default function MegaMenu({ onNavigate }) {
           src={getCategoryImage("organic")}
           fallbackSrc={getCategoryImageFallback("organic")}
           alt=""
-          fallbackEmoji="🌿"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
-          emojiClassName="absolute inset-0 w-full h-full text-6xl"
+          fallbackClassName="absolute inset-0 w-full h-full"
         />
         <div className="relative">
           <span className="text-mango-400 text-xs font-semibold uppercase tracking-wide">

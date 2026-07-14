@@ -5,7 +5,7 @@
 // apiPost/apiGet call later — callers already treat everything here as
 // async and already handle errors, so no page needs to change.
 
-const USERS_KEY = "dalbhat_users_db";
+const USERS_KEY = "daalbhat_users_db";
 const delay = (ms = 500) => new Promise((r) => setTimeout(r, ms));
 
 // Seeded so you can explore the Admin Panel immediately without manually
@@ -14,7 +14,7 @@ const delay = (ms = 500) => new Promise((r) => setTimeout(r, ms));
 const SEED_ADMIN = {
   id: "u_admin_seed",
   name: "Admin",
-  email: "admin@dalbhat.com",
+  email: "admin@daalbhat.com",
   phone: "0000000000",
   password: "admin123",
   role: "admin",

@@ -17,7 +17,6 @@ const heroSlides = [
       "Shop fresh produce, pantry staples, and family bulk packs — delivered to your door at prices that make sense.",
     image: getCategoryImage("fruits"),
     imageFallback: getCategoryImageFallback("fruits"),
-    emoji: "🛒",
     primaryCta: { label: "Shop Now", to: "/shop" },
     secondaryCta: { label: "Explore Bulk Packs", to: "/shop?bulk=true" },
   },
@@ -28,7 +27,6 @@ const heroSlides = [
       "Rice, dal, oil, and atta in bulk sizes built for the whole family — fewer trips to the store, more savings in your pocket.",
     image: getCategoryImage("vegetables"),
     imageFallback: getCategoryImageFallback("vegetables"),
-    emoji: "📦",
     primaryCta: { label: "Shop Bulk Packs", to: "/shop?bulk=true" },
     secondaryCta: { label: "Browse All", to: "/shop" },
   },
@@ -39,7 +37,6 @@ const heroSlides = [
       "From raw honey to organic produce — quality you can trust, picked fresh from farms that care.",
     image: getCategoryImage("organic"),
     imageFallback: getCategoryImageFallback("organic"),
-    emoji: "🌿",
     primaryCta: { label: "Shop Organic", to: "/shop?category=organic" },
     secondaryCta: { label: "View Categories", to: "/categories" },
   },
@@ -125,9 +122,8 @@ export default function Home() {
                       src={getCategoryImage(cat.id)}
                       fallbackSrc={getCategoryImageFallback(cat.id)}
                       alt={cat.name}
-                      fallbackEmoji={cat.icon}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      emojiClassName={`w-full h-full text-2xl ${cat.color}`}
+                      fallbackClassName={`w-full h-full ${cat.color}`}
                     />
                   </div>
                   <span className="text-sm font-medium text-ink text-center">
@@ -168,11 +164,23 @@ export default function Home() {
           {bulkLoading || !bulkProducts ? (
             <ProductGridSkeleton count={4} />
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {bulkProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            <>
+              {/* Mobile: horizontal scroll-snap slider */}
+              <div className="sm:hidden -mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 no-scrollbar">
+                {bulkProducts.map((product) => (
+                  <div key={product.id} className="snap-start shrink-0 w-[78%]">
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+
+              {/* Tablet & up: grid */}
+              <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {bulkProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            </>
           )}
         </div>
       </section>

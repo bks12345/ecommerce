@@ -89,8 +89,8 @@ export default function AdminProducts() {
                   <tr key={p.id} className="border-b border-basil-50 last:border-0">
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-3">
-                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-basil-50 text-base shrink-0">
-                          {p.icon}
+                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-basil-600 text-white text-xs font-semibold shrink-0">
+                          {p.name?.charAt(0).toUpperCase() || "?"}
                         </span>
                         <div className="min-w-0">
                           <p className="font-medium text-ink line-clamp-1">{p.name}</p>

@@ -90,7 +90,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5 shrink-0">
             <span className="font-display text-xl font-semibold text-ink">
-              Dal<span className="text-mango-500">Bhat</span>
+              Daal<span className="text-mango-500">Bhat</span>
             </span>
           </Link>
 
@@ -278,7 +278,7 @@ export default function Navbar() {
                       onClick={() => setMenuOpen(false)}
                       className="text-sm font-semibold text-ink"
                     >
-                      <span aria-hidden="true">{cat.icon}</span> {cat.name}
+                      {cat.name}
                     </Link>
                     <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
                       {cat.subcategories.map((sub) => (

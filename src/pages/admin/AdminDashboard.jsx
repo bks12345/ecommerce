@@ -14,7 +14,7 @@ import {
   FolderTree,
   Users,
   ClipboardList,
-  IndianRupee,
+  DollarSign,
   AlertTriangle,
   Loader2,
 } from "lucide-react";
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
         <StatCard icon={FolderTree} label="Total Categories" value={stats.categories} tone="mango" />
         <StatCard icon={Users} label="Total Customers" value={stats.customers} />
         <StatCard icon={ClipboardList} label="Total Orders" value={stats.orders} tone="mango" />
-        <StatCard icon={IndianRupee} label="Sales Revenue" value={`$${stats.revenue}`} />
+        <StatCard icon={DollarSign} label="Sales Revenue" value={`$${stats.revenue}`} />
         <StatCard
           icon={AlertTriangle}
           label="Out of Stock"

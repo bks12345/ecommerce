@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Plus, Pencil, Trash2, Loader2, X } from "lucide-react";
 import * as adminCategoryService from "../../services/adminCategoryService";
 
-const emptyForm = { name: "", icon: "🛒", subcategoriesText: "" };
+const emptyForm = { name: "", subcategoriesText: "" };
 
 export default function AdminCategories() {
   const [categories, setCategories] = useState(null);
@@ -22,7 +22,6 @@ export default function AdminCategories() {
     setEditing(cat);
     setForm({
       name: cat.name || "",
-      icon: cat.icon || "🛒",
       subcategoriesText: (cat.subcategories || []).join(", "),
     });
     setError(null);
@@ -46,13 +45,11 @@ export default function AdminCategories() {
       if (editing?.id) {
         await adminCategoryService.editCategory(editing.id, {
           name: form.name,
-          icon: form.icon,
           subcategories,
         });
       } else {
         await adminCategoryService.createCategory({
           name: form.name,
-          icon: form.icon,
           color: "bg-basil-100",
           subcategories,
         });
@@ -102,7 +99,9 @@ export default function AdminCategories() {
             <div key={cat.id} className="card-elevated rounded-2xl p-5">
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-2xl shrink-0">{cat.icon}</span>
+                  <div className="w-9 h-9 shrink-0 rounded-full bg-basil-600 text-white flex items-center justify-center text-xs font-semibold">
+                    {cat.name?.charAt(0).toUpperCase() || "?"}
+                  </div>
                   <div className="min-w-0">
                     <p className="font-medium text-ink line-clamp-1">{cat.name}</p>
                     <p className="text-xs text-ink-soft/60">
@@ -154,24 +153,14 @@ export default function AdminCategories() {
               </button>
             </div>
             <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-4">
-              <div className="grid grid-cols-[1fr_80px] gap-4">
-                <label className="flex flex-col gap-1.5 text-sm">
-                  <span className="font-medium text-ink-soft">Name</span>
-                  <input
-                    value={form.name}
-                    onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                    className="px-4 py-2.5 rounded-full bg-cream shadow-soft focus:shadow-soft-lg outline-none transition-shadow text-ink"
-                  />
-                </label>
-                <label className="flex flex-col gap-1.5 text-sm">
-                  <span className="font-medium text-ink-soft">Icon</span>
-                  <input
-                    value={form.icon}
-                    onChange={(e) => setForm((f) => ({ ...f, icon: e.target.value }))}
-                    className="px-4 py-2.5 rounded-full bg-cream shadow-soft focus:shadow-soft-lg outline-none transition-shadow text-ink text-center"
-                  />
-                </label>
-              </div>
+              <label className="flex flex-col gap-1.5 text-sm">
+                <span className="font-medium text-ink-soft">Name</span>
+                <input
+                  value={form.name}
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                  className="px-4 py-2.5 rounded-full bg-cream shadow-soft focus:shadow-soft-lg outline-none transition-shadow text-ink"
+                />
+              </label>
               <label className="flex flex-col gap-1.5 text-sm">
                 <span className="font-medium text-ink-soft">Subcategories (comma-separated)</span>
                 <input

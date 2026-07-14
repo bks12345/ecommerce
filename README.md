@@ -56,7 +56,7 @@ The Home page hero is now a 3-slide auto-rotating carousel (`src/components/ui/H
 
 ## Redesigned Navigation (matches reference screenshot)
 Three-tier header, all in `src/components/layout/`:
-- **`AnnouncementBar.jsx`** — top strip ("Free delivery on your first order over $700" / "Contact support")
+- **`AnnouncementBar.jsx`** — top strip ("Free delivery on your first order over ₹700" / "Contact support")
 - **`Navbar.jsx`** — logo, nav links (active link gets a mango underline), search bar with a circular mango search button, wishlist/cart icons with live count badges, user icon, and a hamburger menu on smaller screens
 - **`CategoryBar.jsx`** — horizontally-scrollable category pills; the active pill highlights automatically based on the `?category=` in the URL when you're on the Shop page
 
@@ -200,7 +200,7 @@ Admin changes aren't a separate, disconnected view — they affect the real stor
 - **`src/services/productStore.js`** / **`categoryStore.js`** — the actual source of truth: seed mock data + a localStorage "overrides" layer (added/edited/deleted). Both the customer-facing `productService`/`categoryService` and the admin services (`adminProductService`, `adminCategoryService`) read and write through these same stores.
 - Add a product in Admin → Products, and it appears on the Shop page and in search immediately (verified by testing this exact flow).
 - Delete a product, edit a price, add a category — all reflected site-wide, not just in the admin table.
-- **`src/services/couponService.js`** — powers both Admin → Coupons *and* the Cart page's promo code field. The old hardcoded `WELCOME10` check in Cart is gone; it now validates against real coupon data, seeded with `WELCOME10` (10% off) and `BULK50` ($50 off) by default.
+- **`src/services/couponService.js`** — powers both Admin → Coupons *and* the Cart page's promo code field. The old hardcoded `WELCOME10` check in Cart is gone; it now validates against real coupon data, seeded with `WELCOME10` (10% off) and `BULK50` (₹50 off) by default.
 
 ### A performance issue I caught and fixed
 Adding the dashboard chart pulled in `recharts`, which pushed the site's main JavaScript bundle from ~300KB to ~757KB — meaning every regular shopper would download admin-dashboard charting code they'd never use, just to browse groceries. Fixed by code-splitting the entire `/admin` section with `React.lazy` + `Suspense`, so `recharts` (and all admin code) is now its own separate bundle that only downloads if someone actually navigates to `/admin`. Confirmed via the build output: the main bundle dropped back to ~372KB, with the admin dashboard split into its own ~356KB chunk loaded on demand.
@@ -229,8 +229,8 @@ The Shop page now supports two ways to browse products, toggled via two icon but
 
 Your choice is remembered in `localStorage`, so it stays as you left it next time you visit the Shop page — same pattern used for cart/wishlist persistence elsewhere in the site. Loading skeletons match whichever view is active, so switching views (or reloading) never shows a layout mismatch while data loads.
 
-## Rename: GreenCart → dalbhat
-The brand has been renamed everywhere — navbar logo, footer, page title, browser tab title, support email (`support@dalbhat.com`), seeded admin email (`admin@dalbhat.com`), and every internal `localStorage` key prefix (`dalbhat_cart`, `dalbhat_wishlist`, etc.).
+## Rename: GreenCart → DaalBhat
+The brand has been renamed everywhere — navbar logo, footer, page title, browser tab title, support email (`support@daalbhat.com`), seeded admin email (`admin@daalbhat.com`), and every internal `localStorage` key prefix (`daalbhat_cart`, `daalbhat_wishlist`, etc.).
 
 **Note if you're reviewing on a browser that already used the site under the old name:** since the storage keys changed, your browser won't find your old cart/wishlist/login session under the new keys — that data isn't lost, it's just sitting under the old `greencart_*` keys and won't be read anymore. Clear your browser's local storage (DevTools → Application → Local Storage) for a clean start, or just keep browsing — everything will save fresh under the new keys from now on.
 
@@ -240,3 +240,30 @@ The brand has been renamed everywhere — navbar logo, footer, page title, brows
 2. The dropdown panel had `overflow-hidden` with no scroll of its own, so the cut-off portion wasn't reachable *any* normal way — zooming out (which shrinks everything to fit) was the only workaround.
 
 **Fix:** `NavDropdown.jsx` (shared by the Shop mega menu, Offers dropdown, and account menu) now caps its height to fit the visible viewport and scrolls internally when its content is taller than that — tested and confirmed working down to a 650px-tall viewport, a genuinely short laptop screen. No more zooming required.
+
+## Emoji icons removed site-wide
+Every emoji icon has been removed and replaced with proper icons, consistent with the rest of the design system:
+
+- **`icon` field removed entirely** from `src/data/products.js` and `src/data/categories.js` — it's no longer part of the product/category data model.
+- **`SafeImage.jsx`** — when a photo fails to load (both the primary and backup source), it now shows a generic `ImageOff` icon (from `lucide-react`) instead of an emoji standing in for the product.
+- **Admin panel** — product/category table rows now show a colored initial-letter avatar (e.g. "F" for "Fresh Royal Gala Apples") instead of an emoji, matching the same avatar style already used for customer accounts. The "Icon (emoji)" field is gone from the Add/Edit Product form.
+- **Empty states, error states, and page icons** (empty cart, empty wishlist, no search results, "coming soon," order history) all use proper `lucide-react` icons (`ShoppingCart`, `Heart`, `SearchX`, `Construction`, `Package`, etc.) instead of emoji.
+
+Verified with an automated scan of every rendered page's text content — confirmed zero emoji characters remain anywhere in the app, admin panel included. (The only remaining non-letter symbol is the plain ★ character used in "4★ & up" rating-filter labels, which isn't an icon and wasn't part of this change.)
+
+## Real social icons in footer
+The footer's social links now use real brand icons (via `react-icons/fa6`) instead of text initials, each linking to an actual URL:
+
+- Facebook, Instagram, Twitter/X, YouTube
+- All open in a new tab with `rel="noopener noreferrer"` (safe practice for external links — prevents the new tab from being able to manipulate the original page)
+- Bundle impact is negligible (~5KB) since these are just small SVGs
+
+**To do before launch:** the URLs (`facebook.com/daalbhat`, `instagram.com/daalbhat`, etc.) are placeholders — update them in `src/components/layout/Footer.jsx` (`socialLinks` array near the top) to your real profile links. Want a different set of platforms (e.g. WhatsApp, LinkedIn, TikTok)? `react-icons/fa6` has icons for those too — swap the import and the array entry.
+
+## Currency: Rupee → Dollar
+Every ₹ symbol across the entire app has been replaced with $ — product prices, cart/checkout totals, admin dashboard revenue, coupon values, and every policy/FAQ page that mentioned pricing. Also updated the admin dashboard's revenue icon (was `IndianRupee`, now `DollarSign`) and fixed a leftover "Indian Rupees" text mention in Terms & Conditions to say "US Dollars" so the currency name matches the symbol.
+
+**Worth knowing:** this was a symbol swap only — the actual numeric prices are unchanged (e.g. what was ₹180 is now $180). If you'd like the numbers themselves adjusted to feel realistic in USD (grocery items and the $700 free-delivery threshold were tuned for the original currency), let me know and I can rework the pricing.
+
+## Family Bulk Packs: mobile-only slider
+On mobile, the "Family Bulk Packs" section on the Home page is now a horizontally swipeable slider (scroll-snap, no extra JS needed) instead of a stacked grid — each card takes about 78% of the screen width so the next one peeks in, inviting a swipe. Tablet and desktop are unchanged and still show the full grid.

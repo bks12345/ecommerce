@@ -18,7 +18,7 @@ export default function Terms() {
 
       <LegalSection heading="Orders and pricing">
         <p>
-          All prices are listed in Indian Rupees ($) and include applicable taxes unless
+          All prices are listed in US Dollars ($) and include applicable taxes unless
           stated otherwise. We reserve the right to correct pricing errors and to cancel
           orders affected by such errors, with a full refund if payment was already made.
         </p>
@@ -34,7 +34,7 @@ export default function Terms() {
 
       <LegalSection heading="Limitation of liability">
         <p>
-          dalbhat is not liable for indirect or consequential damages arising from use
+          DaalBhat is not liable for indirect or consequential damages arising from use
           of the site, to the fullest extent permitted by law. Nothing in these terms
           limits liability that cannot legally be excluded.
         </p>

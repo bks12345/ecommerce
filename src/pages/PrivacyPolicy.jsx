@@ -45,8 +45,8 @@ export default function PrivacyPolicy() {
       <LegalSection heading="Contact us">
         <p>
           Questions about this policy can be sent to{" "}
-          <a href="mailto:support@dalbhat.com" className="text-basil-600 hover:text-basil-700">
-            support@dalbhat.com
+          <a href="mailto:support@daalbhat.com" className="text-basil-600 hover:text-basil-700">
+            support@daalbhat.com
           </a>
           .
         </p>

@@ -62,9 +62,7 @@ export default function ProductCard({ product }) {
           src={getProductImage(product)}
           fallbackSrc={getProductImageFallback(product)}
           alt={product.name}
-          fallbackEmoji={product.icon}
           className="w-full h-36 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-          emojiClassName="text-6xl"
         />
       </Link>
 

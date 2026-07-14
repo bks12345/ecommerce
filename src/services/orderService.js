@@ -3,7 +3,7 @@
 // across a refresh. Swap the body of each function for real apiPost/apiGet
 // calls later — callers already treat everything here as async.
 
-const ORDERS_KEY = "dalbhat_orders";
+const ORDERS_KEY = "daalbhat_orders";
 const delay = (ms = 700) => new Promise((r) => setTimeout(r, ms));
 
 function loadOrders() {
@@ -57,7 +57,6 @@ export async function placeOrder(orderData, userId = null) {
     items: orderData.items.map(({ product, quantity }) => ({
       productId: product.id,
       name: product.name,
-      icon: product.icon,
       price: product.price,
       quantity,
     })),

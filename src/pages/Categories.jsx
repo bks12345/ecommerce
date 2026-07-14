@@ -40,9 +40,8 @@ export default function Categories() {
                       src={getCategoryImage(cat.id)}
                       fallbackSrc={getCategoryImageFallback(cat.id)}
                       alt={cat.name}
-                      fallbackEmoji={cat.icon}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      emojiClassName={`w-full h-full text-3xl ${cat.color}`}
+                      fallbackClassName={`w-full h-full ${cat.color}`}
                     />
                   </div>
                   <div>

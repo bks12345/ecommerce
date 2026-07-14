@@ -2,7 +2,7 @@
 // the Cart/Offers pages have something real to show; Admin → Coupons lets
 // you add/edit/delete from there, all persisted to localStorage.
 
-const COUPONS_KEY = "dalbhat_coupons";
+const COUPONS_KEY = "daalbhat_coupons";
 const delay = (ms = 200) => new Promise((r) => setTimeout(r, ms));
 
 const defaultCoupons = [

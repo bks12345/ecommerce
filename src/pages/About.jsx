@@ -29,14 +29,14 @@ export default function About() {
     <div>
       <section className="bg-basil-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
-          <span className="inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full">
+          <span className="market-tag inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full">
             Our story
           </span>
           <h1 className="mt-5 font-display text-3xl sm:text-4xl font-semibold text-basil-900">
             Groceries that feel like they came from your own backyard.
           </h1>
           <p className="mt-4 text-ink-soft text-base sm:text-lg max-w-2xl mx-auto">
-            dalbhat started with a simple frustration: fresh groceries shouldn't require
+            DaalBhat started with a simple frustration: fresh groceries shouldn't require
             choosing between quality, price, and convenience. So we built a place where
             families can get all three — fast delivery, honest bulk pricing, and produce
             that actually tastes fresh.

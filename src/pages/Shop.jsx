@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { SlidersHorizontal, X, Search, LayoutGrid, List as ListIcon } from "lucide-react";
+import { SlidersHorizontal, X, Search, LayoutGrid, List as ListIcon, AlertTriangle, SearchX } from "lucide-react";
 import * as productService from "../services/productService";
 import * as categoryService from "../services/categoryService";
 import { useAsync } from "../hooks/useAsync";
@@ -11,7 +11,7 @@ import Pagination from "../components/ui/Pagination";
 import { ProductGridSkeleton, ProductListSkeleton } from "../components/ui/Skeletons";
 
 const PAGE_SIZE = 8;
-const VIEW_MODE_KEY = "dalbhat_shop_view_mode";
+const VIEW_MODE_KEY = "daalbhat_shop_view_mode";
 
 const defaultFilters = {
   category: "",
@@ -146,33 +146,7 @@ export default function Shop() {
         </p>
       </div>
 
-      {/* Search this list */}
-      <div className="relative max-w-md mb-6">
-        <label htmlFor="shop-search" className="sr-only">
-          Search products
-        </label>
-        <Search
-          size={16}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50"
-        />
-        <input
-          id="shop-search"
-          type="text"
-          value={search}
-          onChange={(e) => handleSearchChange(e.target.value)}
-          placeholder="Search products by name, brand, or category..."
-          className="w-full pl-11 pr-10 py-2.5 rounded-full bg-white shadow-soft focus:shadow-soft-lg text-sm placeholder:text-ink-soft/50 outline-none transition-shadow"
-        />
-        {search && (
-          <button
-            onClick={() => handleSearchChange("")}
-            aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-basil-50 text-ink-soft"
-          >
-            <X size={14} />
-          </button>
-        )}
-      </div>
+      
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Desktop sidebar */}
@@ -231,7 +205,33 @@ export default function Shop() {
             >
               <SlidersHorizontal size={15} /> Filters
             </button>
-
+{/* Search this list */}
+      <div className="relative max-w-md">
+        <label htmlFor="shop-search" className="sr-only">
+          Search products
+        </label>
+        <Search
+          size={16}
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50"
+        />
+        <input
+          id="shop-search"
+          type="text"
+          value={search}
+          onChange={(e) => handleSearchChange(e.target.value)}
+          placeholder="Search products by name, brand, or category..."
+          className="w-full pl-11 pr-10 py-2.5 rounded-full bg-white shadow-soft focus:shadow-soft-lg text-sm placeholder:text-ink-soft/50 outline-none transition-shadow"
+        />
+        {search && (
+          <button
+            onClick={() => handleSearchChange("")}
+            aria-label="Clear search"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full hover:bg-basil-50 text-ink-soft"
+          >
+            <X size={14} />
+          </button>
+        )}
+      </div>
             <div className="flex items-center gap-2 ml-auto">
               {/* Grid/List view toggle */}
               <div className="flex items-center gap-0.5 bg-white shadow-soft rounded-full p-1">
@@ -277,7 +277,9 @@ export default function Shop() {
 
           {error ? (
             <div className="text-center py-20">
-              <span className="text-5xl" aria-hidden="true">⚠️</span>
+              <div className="w-14 h-14 mx-auto rounded-full bg-tomato-100 flex items-center justify-center">
+                <AlertTriangle size={24} className="text-tomato-500" aria-hidden="true" />
+              </div>
               <p className="mt-4 text-ink-soft">
                 Something went wrong loading products. Please try again.
               </p>
@@ -290,7 +292,9 @@ export default function Shop() {
             )
           ) : result.items.length === 0 ? (
             <div className="text-center py-20">
-              <span className="text-5xl" aria-hidden="true">🔍</span>
+              <div className="w-14 h-14 mx-auto rounded-full bg-basil-50 flex items-center justify-center">
+                <SearchX size={24} className="text-basil-600" aria-hidden="true" />
+              </div>
               <p className="mt-4 text-ink-soft">
                 No products match your filters. Try adjusting or clearing them.
               </p>

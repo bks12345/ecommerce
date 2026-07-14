@@ -17,7 +17,7 @@ import { createContext, useContext, useReducer, useMemo, useEffect } from "react
 // wouldn't need to change — only what happens inside them.
 
 const CartContext = createContext(null);
-const STORAGE_KEY = "dalbhat_cart";
+const STORAGE_KEY = "daalbhat_cart";
 
 const emptyState = { items: [] }; // items: { product, quantity }[]
 

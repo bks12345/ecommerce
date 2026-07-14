@@ -7,7 +7,7 @@
 
 import { products as seedProducts } from "../data/products";
 
-const OVERRIDES_KEY = "dalbhat_product_overrides";
+const OVERRIDES_KEY = "daalbhat_product_overrides";
 
 function loadOverrides() {
   try {

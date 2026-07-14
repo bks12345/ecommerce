@@ -34,7 +34,7 @@ export default function HeroSlider({ slides }) {
 
   return (
     <section
-      className="relative overflow-hidden bg-basil-50 pb-5 px-3 pt-3 sm:px-5 sm:pt-5"
+      className="relative overflow-hidden bg-basil-50 px-3 pt-3 pb-6 sm:px-5 sm:pt-5"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -51,9 +51,8 @@ export default function HeroSlider({ slides }) {
             src={slide.image}
             fallbackSrc={slide.imageFallback}
             alt=""
-            fallbackEmoji={slide.emoji}
             className="w-full h-full object-cover"
-            emojiClassName="w-full h-full text-[10rem] bg-basil-100"
+            fallbackClassName="w-full h-full bg-basil-100"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-basil-900/85 via-basil-900/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-basil-900/30 via-transparent to-transparent" />
@@ -67,7 +66,7 @@ export default function HeroSlider({ slides }) {
             aria-roledescription="slide"
             aria-label={`${current + 1} of ${slides.length}`}
           >
-            <span className="inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-soft">
+            <span className="market-tag inline-flex bg-mango-400 text-basil-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-soft">
               {slide.eyebrow}
             </span>
             <h1 className="mt-5 font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-cream leading-tight">

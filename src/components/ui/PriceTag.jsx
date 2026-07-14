@@ -8,7 +8,7 @@ export default function PriceTag({ price, oldPrice, size = "md" }) {
   return (
     <div className="flex items-center gap-2">
       <span
-        className={`font-semibold bg-basil-600 text-cream rounded-full shadow-soft ${sizes[size]}`}
+        className={`market-tag font-semibold bg-basil-600 text-cream rounded-full shadow-soft ${sizes[size]}`}
       >
         ${price}
       </span>

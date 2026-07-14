@@ -9,7 +9,7 @@ import * as authService from "../services/authService";
 // would then just be holding a real session token instead of a demo one.
 
 const AuthContext = createContext(null);
-const SESSION_KEY = "dalbhat_session";
+const SESSION_KEY = "daalbhat_session";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);

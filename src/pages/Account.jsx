@@ -178,7 +178,9 @@ function OrdersTab({ userId }) {
   if (orders.length === 0) {
     return (
       <div className="card-elevated rounded-3xl p-10 text-center">
-        <span className="text-4xl" aria-hidden="true">📦</span>
+        <div className="w-14 h-14 mx-auto rounded-full bg-basil-50 flex items-center justify-center">
+          <Package size={24} className="text-basil-600" aria-hidden="true" />
+        </div>
         <p className="text-ink-soft mt-3">You haven't placed any orders yet.</p>
       </div>
     );
@@ -208,10 +210,10 @@ function OrdersTab({ userId }) {
             {order.items.slice(0, 5).map((item) => (
               <span
                 key={item.productId}
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-basil-50 text-lg"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-basil-50 text-xs font-semibold text-basil-700"
                 title={item.name}
               >
-                {item.icon}
+                {item.name?.charAt(0).toUpperCase() || "?"}
               </span>
             ))}
             {order.items.length > 5 && (

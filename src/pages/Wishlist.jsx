@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Trash2 } from "lucide-react";
+import { ArrowRight, Trash2, Heart } from "lucide-react";
 import { useWishlist } from "../context/WishlistContext";
 import ProductCard from "../components/ui/ProductCard";
 
@@ -9,7 +9,9 @@ export default function Wishlist() {
   if (items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-24 text-center">
-        <span className="text-5xl" aria-hidden="true">💚</span>
+        <div className="w-14 h-14 mx-auto rounded-full bg-tomato-100 flex items-center justify-center">
+          <Heart size={24} className="text-tomato-500" aria-hidden="true" />
+        </div>
         <h1 className="mt-4 font-display text-2xl font-semibold text-ink">
           Your wishlist is empty
         </h1>

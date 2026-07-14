@@ -7,7 +7,7 @@ import { createContext, useContext, useState, useMemo, useCallback, useEffect } 
 // changing the isInWishlist/toggleWishlist API components already use.
 
 const WishlistContext = createContext(null);
-const STORAGE_KEY = "dalbhat_wishlist";
+const STORAGE_KEY = "daalbhat_wishlist";
 
 function loadInitialItems() {
   try {

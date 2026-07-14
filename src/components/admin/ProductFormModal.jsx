@@ -5,7 +5,6 @@ const emptyForm = {
   name: "",
   brand: "",
   category: "",
-  icon: "🛒",
   price: "",
   oldPrice: "",
   weight: "",
@@ -90,10 +89,9 @@ export default function ProductFormModal({ categories, initial, onSave, onClose 
             </label>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <Field label="Price ($)" type="number" min="0" value={form.price} onChange={handleChange("price")} required />
             <Field label="Old price" type="number" min="0" value={form.oldPrice} onChange={handleChange("oldPrice")} />
-            <Field label="Icon (emoji)" value={form.icon} onChange={handleChange("icon")} />
           </div>
 
           <Field label="Weight / quantity" placeholder="e.g. 1 kg, 500 ml" value={form.weight} onChange={handleChange("weight")} />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Tag, Loader2 } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingBag, ShoppingCart, ArrowRight, Tag, Loader2 } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { getProductImage, getProductImageFallback } from "../data/images";
 import SafeImage from "../components/ui/SafeImage";
@@ -48,7 +48,9 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-24 text-center">
-        <span className="text-5xl" aria-hidden="true">🛒</span>
+        <div className="w-14 h-14 mx-auto rounded-full bg-basil-50 flex items-center justify-center">
+          <ShoppingCart size={26} className="text-basil-600" aria-hidden="true" />
+        </div>
         <h1 className="mt-4 font-display text-2xl font-semibold text-ink">
           Your cart is empty
         </h1>
@@ -88,9 +90,8 @@ export default function Cart() {
                   src={getProductImage(product)}
                   fallbackSrc={getProductImageFallback(product)}
                   alt={product.name}
-                  fallbackEmoji={product.icon}
                   className="w-full h-full object-cover"
-                  emojiClassName="text-4xl w-full h-full"
+                  fallbackClassName="w-full h-full"
                 />
               </Link>
 

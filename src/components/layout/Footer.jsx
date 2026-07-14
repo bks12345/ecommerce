@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const socialLinks = [
-  { label: "Facebook", initial: "f",url: "https://www.facebook.com/" },
-  { label: "Instagram", initial: "I",url: "https://www.instagram.com/",},
-  { label: "Twitter", initial: "x",url: "https://www.twitter/",},
+  { label: "Facebook", icon: FaFacebookF, href: "https://facebook.com/daalbhat" },
+  { label: "Instagram", icon: FaInstagram, href: "https://instagram.com/daalbhat" },
+  { label: "Twitter / X", icon: FaXTwitter, href: "https://x.com/daalbhat" },
+  { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/@daalbhat" },
 ];
 
 const footerLinks = {
@@ -29,14 +31,14 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-basil-900 text-cream/90 mt-24">
+    <footer className="bg-basil-900 text-cream/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* Brand + newsletter */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2">
               <span className="font-display text-xl font-semibold text-cream">
-                Dalbhat
+                DaalBhat
               </span>
             </Link>
             <p className="text-sm text-cream/60 mt-3 max-w-xs">
@@ -69,12 +71,13 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
-                  href="#"
-                  aria-label={social.label}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-cream/10 text-xs font-semibold hover:bg-mango-400 hover:text-basil-900 transition-colors"
+                  href={social.href}
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-cream/10 hover:bg-mango-400 hover:text-basil-900 transition-colors"
                 >
-                  {social.initial}
+                  <social.icon size={14} />
                 </a>
               ))}
             </div>
@@ -100,16 +103,16 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-cream/10 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-cream/50">
-          <p>© {new Date().getFullYear()} Dalbhat. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} DaalBhat. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
             <span className="flex items-center gap-1.5">
               <Phone size={14} /> +91 98765 43210
             </span>
             <span className="flex items-center gap-1.5">
-              <Mail size={14} /> support@dalbhat.com
+              <Mail size={14} /> support@daalbhat.com
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin size={14} /> 123 Market Street, Australia
+              <MapPin size={14} /> 123 Market Street, Your City
             </span>
           </div>
         </div>

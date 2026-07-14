@@ -1,7 +1,7 @@
 import { categories as seedCategories } from "../data/categories";
 import { getEffectiveProducts } from "./productStore";
 
-const OVERRIDES_KEY = "dalbhat_category_overrides";
+const OVERRIDES_KEY = "daalbhat_category_overrides";
 
 function loadOverrides() {
   try {

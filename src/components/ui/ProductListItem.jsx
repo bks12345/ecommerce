@@ -30,9 +30,8 @@ export default function ProductListItem({ product }) {
           src={getProductImage(product)}
           fallbackSrc={getProductImageFallback(product)}
           alt={product.name}
-          fallbackEmoji={product.icon}
           className="w-full h-full object-cover"
-          emojiClassName="text-4xl w-full h-full"
+          fallbackClassName="w-full h-full"
         />
         <div className="absolute top-1.5 left-1.5 flex flex-col gap-1">
           {product.isBulk && (

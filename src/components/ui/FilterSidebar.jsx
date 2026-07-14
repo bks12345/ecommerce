@@ -47,7 +47,7 @@ export default function FilterSidebar({ filters, onChange, onClear, brands = [],
                 onChange={() => onChange({ ...filters, category: cat.id })}
                 className="accent-basil-600"
               />
-              <span aria-hidden="true">{cat.icon}</span> {cat.name}
+              {cat.name}
             </label>
           ))}
         </div>
