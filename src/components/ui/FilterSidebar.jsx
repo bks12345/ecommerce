@@ -62,10 +62,11 @@ export default function FilterSidebar({ filters, onChange, onClear, brands = [],
             <input
               type="number"
               min="0"
-              value={filters.minPrice}
+              value={filters.minPrice || ""}
               onChange={(e) =>
                 onChange({ ...filters, minPrice: Number(e.target.value) || 0 })
               }
+              placeholder="0"
               aria-label="Minimum price"
               className="w-20 px-2 py-1.5 rounded-lg shadow-soft text-sm outline-none focus:shadow-soft-lg transition-shadow"
             />
@@ -76,10 +77,15 @@ export default function FilterSidebar({ filters, onChange, onClear, brands = [],
             <input
               type="number"
               min="0"
-              value={filters.maxPrice}
-              onChange={(e) =>
-                onChange({ ...filters, maxPrice: Number(e.target.value) || 0 })
-              }
+              value={filters.maxPrice === Infinity ? "" : filters.maxPrice}
+              onChange={(e) => {
+                const raw = e.target.value;
+                onChange({
+                  ...filters,
+                  maxPrice: raw === "" ? Infinity : Number(raw),
+                });
+              }}
+              placeholder="No max"
               aria-label="Maximum price"
               className="w-20 px-2 py-1.5 rounded-lg shadow-soft text-sm outline-none focus:shadow-soft-lg transition-shadow"
             />

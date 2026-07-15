@@ -100,6 +100,10 @@ export default function Shop() {
 
   useEffect(() => setPage(1), [filters, search, sort]);
 
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, [page]);
+
   const activeCategory = categories?.find((c) => c.id === filters.category);
 
   const handleClearFilters = () => {
@@ -146,6 +150,7 @@ export default function Shop() {
         </p>
       </div>
 
+      {/* Search this list */}
       
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -205,8 +210,7 @@ export default function Shop() {
             >
               <SlidersHorizontal size={15} /> Filters
             </button>
-{/* Search this list */}
-      <div className="relative max-w-md">
+<div className="relative max-w-md">
         <label htmlFor="shop-search" className="sr-only">
           Search products
         </label>

@@ -3,10 +3,10 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const socialLinks = [
-  { label: "Facebook", icon: FaFacebookF, href: "https://facebook.com/daalbhat" },
+  { label: "Facebook", icon: FaFacebookF, href: "https://facebook.com/" },
   { label: "Instagram", icon: FaInstagram, href: "https://instagram.com/daalbhat" },
-  { label: "Twitter / X", icon: FaXTwitter, href: "https://x.com/daalbhat" },
-  { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/@daalbhat" },
+  { label: "Twitter / X", icon: FaXTwitter, href: "https://x.com/" },
+  { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/" },
 ];
 
 const footerLinks = {
@@ -112,7 +112,7 @@ export default function Footer() {
               <Mail size={14} /> support@daalbhat.com
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin size={14} /> 123 Market Street, Your City
+              <MapPin size={14} /> 123 Market Street, Sydney
             </span>
           </div>
         </div>
