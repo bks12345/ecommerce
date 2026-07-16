@@ -4,11 +4,14 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import SafeImage from "./SafeImage";
 
 const AUTOPLAY_MS = 5500;
+const SWIPE_THRESHOLD_PX = 50;
 
 export default function HeroSlider({ slides }) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
+  const touchStartX = useRef(null);
+  const touchDeltaX = useRef(0);
 
   const goTo = useCallback(
     (index) => setCurrent((index + slides.length) % slides.length),
@@ -16,6 +19,16 @@ export default function HeroSlider({ slides }) {
   );
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+
+ 
+  const handleArrowClick = (fn) => (e) => {
+    fn();
+    e.currentTarget.blur();
+  };
+  const handleDotClick = (index) => (e) => {
+    goTo(index);
+    e.currentTarget.blur();
+  };
 
   // Autoplay
   useEffect(() => {
@@ -30,11 +43,34 @@ export default function HeroSlider({ slides }) {
     if (e.key === "ArrowLeft") prev();
   };
 
+  
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+    setPaused(true);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartX.current === null) return;
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchDeltaX.current > SWIPE_THRESHOLD_PX) {
+      prev();
+    } else if (touchDeltaX.current < -SWIPE_THRESHOLD_PX) {
+      next();
+    }
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+    setPaused(false);
+  };
+
   const slide = slides[current];
 
   return (
     <section
-      className="relative overflow-hidden bg-basil-50 px-3 pt-3 pb-5 sm:px-5 sm:pt-5"
+      className="relative overflow-hidden bg-basil-50 px-3 pb-5 pt-3 sm:px-5 sm:pt-5"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -43,7 +79,12 @@ export default function HeroSlider({ slides }) {
       aria-roledescription="carousel"
       aria-label="Featured promotions"
     >
-      <div className="relative h-[460px] sm:h-[500px] lg:h-[560px] rounded-3xl overflow-hidden shadow-elevated">
+      <div
+        className="relative h-[460px] sm:h-[500px] lg:h-[560px] rounded-3xl overflow-hidden shadow-elevated touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Background photo */}
         <div className="absolute inset-0">
           <SafeImage
@@ -98,14 +139,14 @@ export default function HeroSlider({ slides }) {
         {slides.length > 1 && (
           <>
             <button
-              onClick={prev}
+              onClick={handleArrowClick(prev)}
               aria-label="Previous slide"
               className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full glass-panel-dark backdrop-blur-md text-cream hover:scale-105 transition-transform"
             >
               <ChevronLeft size={20} />
             </button>
             <button
-              onClick={next}
+              onClick={handleArrowClick(next)}
               aria-label="Next slide"
               className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full glass-panel-dark backdrop-blur-md text-cream hover:scale-105 transition-transform"
             >
@@ -117,7 +158,7 @@ export default function HeroSlider({ slides }) {
               {slides.map((s, i) => (
                 <button
                   key={s.eyebrow}
-                  onClick={() => goTo(i)}
+                  onClick={handleDotClick(i)}
                   aria-label={`Go to slide ${i + 1}`}
                   aria-current={i === current}
                   className={`h-2 rounded-full transition-all ${

@@ -36,10 +36,7 @@ export default function About() {
             Groceries that feel like they came from your own backyard.
           </h1>
           <p className="mt-4 text-ink-soft text-base sm:text-lg max-w-2xl mx-auto">
-            DaalBhat started with a simple frustration: fresh groceries shouldn't require
-            choosing between quality, price, and convenience. So we built a place where
-            families can get all three — fast delivery, honest bulk pricing, and produce
-            that actually tastes fresh.
+           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt amet laborum minima ad in. Molestias ducimus aperiam harum aliquid sequi necessitatibus ipsam quasi quis facere! Doloribus modi tempora doloremque odio?
           </p>
         </div>
       </section>

@@ -4,46 +4,36 @@ export default function Terms() {
   return (
     <LegalPage title="Terms & Conditions" updated="July 2026">
       <p className="text-sm text-ink-soft leading-relaxed">
-        This is placeholder policy content for demonstration purposes — replace it with
-        text reviewed by a qualified professional before taking this site live.
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellendus eos consequatur qui soluta totam error doloribus adipisci architecto! Non illo nihil autem inventore sunt vel culpa fugit ab sequi.
       </p>
 
       <LegalSection heading="Using our site">
         <p>
-          By creating an account or placing an order, you agree to provide accurate
-          information and to use the site only for lawful purposes. We may suspend or
-          close accounts used for fraudulent or abusive activity.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat odio sapiente, modi optio dolores, facilis provident nam placeat, aliquid quibusdam voluptatibus! Sint voluptatibus qui in non iusto harum. Odit, aut.
         </p>
       </LegalSection>
 
       <LegalSection heading="Orders and pricing">
         <p>
-          All prices are listed in US Dollars ($) and include applicable taxes unless
-          stated otherwise. We reserve the right to correct pricing errors and to cancel
-          orders affected by such errors, with a full refund if payment was already made.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat corrupti deleniti quia maxime eligendi nesciunt distinctio, sapiente cumque quibusdam optio praesentium maiores doloremque aliquam inventore iste minus totam pariatur perferendis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit in, odio omnis quibusdam, quidem exercitationem placeat fuga facere nobis ratione corporis harum voluptate et, inventore nam error sit praesentium consequuntur.
         </p>
       </LegalSection>
 
       <LegalSection heading="Delivery">
         <p>
-          Delivery estimates are shown at checkout and are our best estimate, not a
-          guarantee. Delays due to weather, regional restrictions, or circumstances beyond
-          our control may occasionally occur.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid atque eveniet labore sunt nisi sint expedita, ipsum laudantium? Nesciunt aliquam facere maxime saepe aliquid fuga ab deserunt voluptates dignissimos.
         </p>
       </LegalSection>
 
       <LegalSection heading="Limitation of liability">
         <p>
-          DaalBhat is not liable for indirect or consequential damages arising from use
-          of the site, to the fullest extent permitted by law. Nothing in these terms
-          limits liability that cannot legally be excluded.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid accusantium, recusandae expedita totam laudantium facere harum veniam a quos animi id ullam officiis odit esse, blanditiis nobis, aspernatur molestias!
         </p>
       </LegalSection>
 
       <LegalSection heading="Changes to these terms">
         <p>
-          We may update these terms from time to time. Continued use of the site after a
-          change constitutes acceptance of the updated terms.
+          Lorem
         </p>
       </LegalSection>
     </LegalPage>

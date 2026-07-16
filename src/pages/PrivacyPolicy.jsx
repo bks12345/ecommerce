@@ -4,41 +4,30 @@ export default function PrivacyPolicy() {
   return (
     <LegalPage title="Privacy Policy" updated="July 2026">
       <p className="text-sm text-ink-soft leading-relaxed">
-        This is placeholder policy content for demonstration purposes — replace it with
-        text reviewed by a qualified professional before taking this site live.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iste ipsa laudantium quas magni, explicabo dignissimos, facere repellat molestias sint, laboriosam neque unde! Possimus aliquid ratione hic illo aspernatur recusandae?
       </p>
 
       <LegalSection heading="Information we collect">
         <p>
-          When you create an account, place an order, or contact support, we collect
-          information such as your name, email address, phone number, delivery address,
-          and order history. We use this information solely to operate the store —
-          processing orders, providing support, and improving the shopping experience.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quasi. Repellat culpa dolores natus eligendi nam a minus voluptatem sequi officia? Atque doloribus, assumenda delectus sit architecto facilis cumque nemo! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum iusto, incidunt quas facere, reiciendis rerum ad labore est omnis nihil quos doloribus iure consequatur animi perspiciatis consequuntur autem mollitia? Velit?
         </p>
       </LegalSection>
 
       <LegalSection heading="How we use your information">
         <p>
-          Your information is used to fulfill orders, communicate order updates, respond
-          to support requests, and — with your consent — send occasional offers and
-          newsletters. We do not sell your personal information to third parties.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam tempora sunt beatae earum nesciunt debitis adipisci voluptas obcaecati ipsum, quia voluptate possimus aliquam aperiam ex cum dolores cupiditate animi? Nam.
         </p>
       </LegalSection>
 
       <LegalSection heading="Data storage and security">
         <p>
-          We take reasonable technical and organizational measures to protect your data
-          from unauthorized access, loss, or misuse. No online service can guarantee
-          absolute security, so we encourage using a strong, unique password for your
-          account.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe mollitia asperiores esse quis tempora qui! Consequuntur nesciunt optio error consequatur magni esse perferendis ratione dolore, nihil eum corporis atque!
         </p>
       </LegalSection>
 
       <LegalSection heading="Your rights">
         <p>
-          You can review and update your account details at any time from My Account, and
-          you may request deletion of your account and associated data by contacting
-          support.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sit ex consequuntur necessitatibus tenetur illo blanditiis alias asperiores reiciendis officia consequatur dolor nihil, ducimus culpa impedit saepe ad? Minima, obcaecati!
         </p>
       </LegalSection>
 
