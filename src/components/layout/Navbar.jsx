@@ -51,8 +51,6 @@ function SearchBar({ className = "", inputId = "nav-search" }) {
   );
 }
 
-// Mobile-only expandable section (accordion) since hover mega menus don't
-// translate well to touch screens.
 function MobileAccordion({ title, children }) {
   const [expanded, setExpanded] = useState(false);
   return (
@@ -66,7 +64,11 @@ function MobileAccordion({ title, children }) {
         {title}
         <ChevronDown size={16} className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
       </button>
-      {expanded && <div className="pl-3 pb-2">{children}</div>}
+      {expanded && (
+        <div className="pl-3 pb-2 max-h-[50vh] overflow-y-auto overscroll-contain">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
@@ -254,7 +256,7 @@ export default function Navbar() {
 
         {/* Mobile nav links */}
         {menuOpen && (
-          <nav className="lg:hidden flex flex-col gap-1 pb-4">
+          <nav className="lg:hidden flex flex-col gap-1 pb-4 max-h-[60vh] overflow-y-auto overscroll-contain">
             <NavLink
               to="/"
               end
