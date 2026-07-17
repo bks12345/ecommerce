@@ -51,6 +51,48 @@ function SearchBar({ className = "", inputId = "nav-search" }) {
   );
 }
 
+function MobileCategoryItem({ category, onNavigate }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-basil-50 last:border-b-0">
+      <div className="flex items-center">
+        <Link
+          to={`/shop?category=${category.id}`}
+          onClick={onNavigate}
+          className="flex-1 py-2.5 text-sm font-medium text-ink hover:text-basil-600"
+        >
+          {category.name}
+        </Link>
+        {category.subcategories?.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+            aria-label={`${open ? "Hide" : "Show"} ${category.name} subcategories`}
+            className="p-2.5 -mr-1 text-ink-soft"
+          >
+            <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+          </button>
+        )}
+      </div>
+      {open && (
+        <ul className="pb-2 pl-3 flex flex-col">
+          {category.subcategories.map((sub) => (
+            <li key={sub}>
+              <Link
+                to={`/shop?category=${category.id}&sub=${encodeURIComponent(sub)}`}
+                onClick={onNavigate}
+                className="block py-1.5 text-sm text-ink-soft hover:text-basil-600"
+              >
+                {sub}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 function MobileAccordion({ title, children }) {
   const [expanded, setExpanded] = useState(false);
   return (
@@ -270,34 +312,18 @@ export default function Navbar() {
               Home
             </NavLink>
 
-            {/* Shop accordion: categories -> subcategories */}
-            <MobileAccordion title="Shop">
-              <div className="flex flex-col gap-3">
-                {categories.map((cat) => (
-                  <div key={cat.id}>
-                    <Link
-                      to={`/shop?category=${cat.id}`}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-sm font-semibold text-ink"
-                    >
-                      {cat.name}
-                    </Link>
-                    <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
-                      {cat.subcategories.map((sub) => (
-                        <Link
-                          key={sub}
-                          to={`/shop?category=${cat.id}&sub=${encodeURIComponent(sub)}`}
-                          onClick={() => setMenuOpen(false)}
-                          className="text-xs text-ink-soft"
-                        >
-                          {sub}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </MobileAccordion>
+            {/* Shop accordion: categories -> subcategories (tap a category to reveal its subcategories) */}
+<MobileAccordion title="Shop">
+  <div className="flex flex-col">
+    {categories.map((cat) => (
+      <MobileCategoryItem
+        key={cat.id}
+        category={cat}
+        onNavigate={() => setMenuOpen(false)}
+      />
+    ))}
+  </div>
+</MobileAccordion>
 
             <NavLink
               to="/categories"
