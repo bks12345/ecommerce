@@ -313,17 +313,17 @@ export default function Navbar() {
             </NavLink>
 
             {/* Shop accordion: categories -> subcategories (tap a category to reveal its subcategories) */}
-<MobileAccordion title="Shop">
-  <div className="flex flex-col">
-    {categories.map((cat) => (
-      <MobileCategoryItem
-        key={cat.id}
-        category={cat}
-        onNavigate={() => setMenuOpen(false)}
-      />
-    ))}
-  </div>
-</MobileAccordion>
+            <MobileAccordion title="Shop">
+              <div className="flex flex-col">
+                {categories.map((cat) => (
+                  <MobileCategoryItem
+                    key={cat.id}
+                    category={cat}
+                    onNavigate={() => setMenuOpen(false)}
+                  />
+                ))}
+              </div>
+            </MobileAccordion>
 
             <NavLink
               to="/categories"
@@ -342,7 +342,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-3">
                 {offersMenu.map((section) => (
                   <div key={section.group}>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft/60">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft/60 pb-2">
                       {section.group}
                     </p>
                     <div className="mt-1 flex flex-col gap-1">
@@ -351,7 +351,7 @@ export default function Navbar() {
                           key={item.label}
                           to={item.to}
                           onClick={() => setMenuOpen(false)}
-                          className="text-sm text-ink"
+                          className="text-sm text-ink pb-1"
                         >
                           {item.label}
                         </Link>
